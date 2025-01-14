@@ -6,7 +6,7 @@ import (
 )
 
 func TestNewExecutor(t *testing.T) {
-	exec := NewExecutor()
+	exec := NewCmdExecutor()
 
 	stdOut, stdErr, err := exec.ExecuteCmd("ls")
 	require.NoError(t, err)

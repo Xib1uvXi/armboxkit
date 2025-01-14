@@ -3,7 +3,7 @@ package net
 import (
 	"fmt"
 	"github.com/dustin/go-humanize"
-	"github.com/shirou/gopsutil/net"
+	"github.com/shirou/gopsutil/v4/net"
 	"sync"
 	"time"
 )

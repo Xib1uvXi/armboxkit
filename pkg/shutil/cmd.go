@@ -6,14 +6,14 @@ import (
 	"strings"
 )
 
-type Executor struct {
+type CmdExecutor struct {
 }
 
-func NewExecutor() *Executor {
-	return &Executor{}
+func NewCmdExecutor() *CmdExecutor {
+	return &CmdExecutor{}
 }
 
-func (e *Executor) ExecuteCmd(cmdStr string) (outStr string, errStr string, err error) {
+func (e *CmdExecutor) ExecuteCmd(cmdStr string) (outStr string, errStr string, err error) {
 	var (
 		stdout, stderr bytes.Buffer
 	)
