@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/dustin/go-humanize"
 	"github.com/shirou/gopsutil/v4/disk"
+	"strings"
 	"sync"
 	"time"
 )
@@ -82,6 +83,26 @@ func (m *Monitor) GetInfo(name string) *Info {
 	}
 
 	return nil
+}
+
+func (m *Monitor) GetInfoByPath(path string) (*Info, error) {
+	partitions, err := disk.Partitions(true)
+	if err != nil {
+		return nil, err
+	}
+
+	bd := ""
+	for _, partition := range partitions {
+		if strings.HasPrefix(path, partition.Mountpoint) {
+			bd = partition.Device
+		}
+	}
+
+	if bd == "" {
+		return nil, fmt.Errorf("no such device")
+	}
+
+	return m.GetInfo(bd), nil
 }
 
 func (m *Monitor) Close() {
