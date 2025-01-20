@@ -9,6 +9,7 @@ require (
 )
 
 require (
+	github.com/ccding/go-stun/stun v0.0.0-20200514191101-4dc67bcdb029 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/ebitengine/purego v0.8.1 // indirect
 	github.com/go-ole/go-ole v1.2.6 // indirect
