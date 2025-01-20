@@ -55,6 +55,10 @@ func NewBaseInfo(stunServer string, opts ...BaseInfoOption) (*BaseInfo, error) {
 	return s, nil
 }
 
+func (s *BaseInfo) Close() {
+	close(s.closeCh)
+}
+
 func (s *BaseInfo) natCheckLoop() {
 	ticker := time.NewTicker(s.natCheckInterval)
 	defer ticker.Stop()
